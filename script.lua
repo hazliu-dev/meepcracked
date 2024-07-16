@@ -1,4 +1,4 @@
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/synolope/meepcracked/main/ui-engine.lua"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/hazliu-dev/cdc-meep/main/ui-engine.lua"))()
 
 local function loopwrap(func,int)
 	local connect = nil
@@ -53,12 +53,12 @@ local function getclosestplr()
 end
 
 local function checkdir()
-    if not isfolder("meepcracked") then
-        makefolder("meepcracked")
+    if not isfolder("cdc-meep") then
+        makefolder("cdc-meep")
     end
 end
 
-local guiname = "MeepCracked"
+local guiname = "cdc-meep"
 
 if identifyexecutor then
     guiname = guiname .. " - " .. identifyexecutor()
@@ -69,8 +69,8 @@ local clr = Color3.fromRGB(142, 21, 212)
 
 checkdir()
 
-if isfile("meepcracked\\clr.txt") then
-    local R,G,B = unpack(readfile("meepcracked\\clr.txt"):split(";"))
+if isfile("cdc-meep\\clr.txt") then
+    local R,G,B = unpack(readfile("cdc-meep\\clr.txt"):split(";"))
     R,G,B = tonumber(R),tonumber(G),tonumber(B)
     clr = Color3.new(R,G,B)
 end
@@ -88,10 +88,10 @@ local ServerDWindow = library:AddWindow("Server Destroying", WindowOptions)
 local AvatarWindow = library:AddWindow("Avatar", WindowOptions)
 
 local Welcome = Window:AddTab("Welcome")
-Welcome:AddLabel("Thank you for using MeepCracked.")
+Welcome:AddLabel("Thank you for using cdc.meep")
 Welcome:AddButton("Join Our Discord Server",function()
     local Settings = {
-        InviteCode = "UtpqrGp29a" --add your invite code here (without the "https://discord.gg/" part)
+        InviteCode = "cdc" --add your invite code here (without the "https://discord.gg/" part)
     }
     
     -- Objects
@@ -186,12 +186,12 @@ end,10))
 
 local fgs = Local:AddSwitch("Free Gamepasses",function(b)
 	checkdir()
-	writefile("meepcracked\\freegamepasses.txt",tostring(b))
+	writefile("cdc-meep\\freegamepasses.txt",tostring(b))
 	game.Players.LocalPlayer:SetAttribute("PLUS",b)
 	game.Players.LocalPlayer:SetAttribute("BoomBox",b)
 end)
 
-if isfile("meepcracked\\freegamepasses.txt") and readfile("meepcracked\\freegamepasses.txt") == "true" then
+if isfile("cdc-meep\\freegamepasses.txt") and readfile("cdc-meep\\freegamepasses.txt") == "true" then
 	fgs:Set(true)
 end
 
@@ -270,15 +270,15 @@ end)
 Local:AddTextBox("Set World Background Music ID",function(id)
     if tonumber(id) then
         checkdir()
-        writefile("meepcracked\\bgmusic.txt",id)
+        writefile("cdc-meep\\bgmusic.txt",id)
         require(game:GetService("ReplicatedStorage").ClientClasses.VirtualWorld).SetBackgroundMusic(id,.5,true)
     end
 end)
 
 checkdir()
 
-if isfile("meepcracked\\bgmusic.txt") then
-    require(game:GetService("ReplicatedStorage"):WaitForChild("ClientClasses"):WaitForChild("VirtualWorld")).SetBackgroundMusic(readfile("meepcracked\\bgmusic.txt"),.5,true)
+if isfile("cdc-meep\\bgmusic.txt") then
+    require(game:GetService("ReplicatedStorage"):WaitForChild("ClientClasses"):WaitForChild("VirtualWorld")).SetBackgroundMusic(readfile("cdc-meep\\bgmusic.txt"),.5,true)
 end
 
 local MMain = MeepWindow:AddTab("Main")
@@ -324,7 +324,7 @@ hori:AddButton("Dildo",function()
 end)
 
 hori:AddButton("Fuck",function()
-	NBox:Set(game:HttpGet("https://raw.githubusercontent.com/synolope/meepcracked/main/art/f.txt"))
+	NBox:Set(game:HttpGet("https://raw.githubusercontent.com/hazliu-dev/cdc-meep/main/art/f.txt"))
 end)
 
 MMain:AddButton("Toggle Meep",function()
@@ -342,7 +342,7 @@ local Settings = Window:AddTab("Settings")
 Settings:AddLabel("UI Color")
 local dclrp = Settings:AddColorPicker(function(clrp)
     checkdir()
-    writefile("meepcracked\\clr.txt",table.concat({clrp.R,clrp.G,clrp.B},";"))
+    writefile("cdc-meep\\clr.txt",table.concat({clrp.R,clrp.G,clrp.B},";"))
     WindowOptions.main_color = clrp
 end)
 dclrp:Set(clr)
@@ -350,7 +350,7 @@ WindowOptions.main_color = clr
 Settings:AddButton("Reset UI Color",function()
     local clrp = Color3.fromRGB(142, 21, 212)
     checkdir()
-    writefile("meepcracked\\clr.txt",table.concat({clrp.R,clrp.G,clrp.B},";"))
+    writefile("cdc-meep\\clr.txt",table.concat({clrp.R,clrp.G,clrp.B},";"))
     dclrp:Set(clrp)
     WindowOptions.main_color = clrp
 end)
