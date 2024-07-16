@@ -1,4 +1,4 @@
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/hazliu-dev/cdc-meep/main/ui-engine.lua"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/hazliu-dev/meepcracked/main/ui-engine.lua"))()
 
 local function loopwrap(func,int)
 	local connect = nil
@@ -324,7 +324,7 @@ hori:AddButton("Dildo",function()
 end)
 
 hori:AddButton("Fuck",function()
-	NBox:Set(game:HttpGet("https://raw.githubusercontent.com/hazliu-dev/cdc-meep/main/art/f.txt"))
+	NBox:Set(game:HttpGet("https://raw.githubusercontent.com/hazliu-dev/meepcracked/main/art/f.txt"))
 end)
 
 MMain:AddButton("Toggle Meep",function()
